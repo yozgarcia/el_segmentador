@@ -5,35 +5,6 @@ export PATH
 
 echo "Welcome to EL Segmentador"
 
-check_interface()
-{
-	echo -en "Report the Network Interface: "
-	read ETH	
-
-	ifconfig | grep : | cut -d: -f1 | grep -v ' ' > /tmp/eths
-	isInFile=$(cat /tmp/eths | grep -Fxc "$ETH")
-
-	while [ "$isInFile" -eq 0 ]
-	do
-		echo "WARMING!! Network Interface invalid!"
-		echo -en "Report the Network Interface: "
-		read ETH
-		isInFile=$(cat /tmp/eths | grep -Fxc "$ETH")
-	done
-}
-
-check_scope()
-{
-	echo -en "Report the network scope: "
-	read SCOPE
-	while [ ! -e $SCOPE ]
-	do
-		echo "WARMING!! Scope invalid!"
-		echo -en "Report the network scope: "
-		read SCOPE
-	done
-}
-
 init_directories()
 {
 	echo -en "Report the exit DIRECTORY: "
@@ -49,11 +20,40 @@ init_directories()
 	UDP_PATH="$DIRECTORY/UDP"
 }
 
+check_interface()
+{
+	echo -en "Report the Network Interface: "
+	read ETH	
+
+	ifconfig | grep : | cut -d: -f1 | grep -v ' ' > $TMP_PATH/eths
+	isInFile=$(cat $TMP_PATH/eths | grep -Fxc "$ETH")
+
+	while [ "$isInFile" -eq 0 ]
+	do
+		echo "WARMING!! Network Interface invalid!"
+		echo -en "Report the Network Interface: "
+		read ETH
+		isInFile=$(cat $TMP_PATH/eths | grep -Fxc "$ETH")
+	done
+}
+
+check_scope()
+{
+	echo -en "Report the network scope: "
+	read SCOPE
+	while [ ! -e $SCOPE ]
+	do
+		echo "WARMING!! Scope invalid!"
+		echo -en "Report the network scope: "
+		read SCOPE
+	done
+}
+
 init_vars()
 {
+	init_directories
 	check_interface
 	check_scope
-	init_directories
 
 	rm -rf $TCP_PATH/hosts_complete_tcp.txt
 	rm -rf $UDP_PATH/hosts_complete_udp.txt
@@ -99,22 +99,22 @@ tcp_nmap_scan()
 {
     for ip in $(cat $TMP_PATH/list0$1)
     do
-        nmap -p- -Pn -sV -A --script "discovery and version" -T3 -e $ETH $ip -oN $TCP_PATH/discovery_version_scan_tcp_$ip.txt --open --system-dns
-        nmap -p- -Pn -sV -A --script "default and vuln" -T3 -e $ETH $ip -oN $TCP_PATH/default_vuln_scan_tcp_$ip.txt --open --system-dns
+        nmap -p- -Pn -sV -A --script "discovery and version" -T3 -e $ETH $ip -oN $TCP_PATH/discovery_version_scan_tcp_$ip.txt --open --system-dns > /dev/null
+        nmap -p- -Pn -sV -A --script "default and vuln" -T3 -e $ETH $ip -oN $TCP_PATH/default_vuln_scan_tcp_$ip.txt --open --system-dns > /dev/null
         echo "$ip" >> $TCP_PATH/hosts_complete_tcp.txt
+        echo "TCP Scan Complete for Host $ip"
     done
-    echo "TCP Scan Finished"
 }
 
 udp_nmap_scan()
 {
     for ip in $(cat $TMP_PATH/list0$1)
-    do
-        nmap -p- -Pn -sV -A -sU --script "discovery and version" -T3 -e $ETH $ip -oN $UDP_PATH/discovery_version_scan_udp_$ip.txt --open --system-dns
-        nmap -p- -Pn -sV -A -sU --script "default and vuln" -T3 -e $ETH $ip -oN $UDP_PATH/default_vuln_scan_udp_$ip.txt --open --system-dns
+    do		
+        nmap -p- -Pn -sV -A -sU --script "discovery and version" -T3 -e $ETH $ip -oN $UDP_PATH/discovery_version_scan_udp_$ip.txt --open --system-dns > /dev/null
+        nmap -p- -Pn -sV -A -sU --script "default and vuln" -T3 -e $ETH $ip -oN $UDP_PATH/default_vuln_scan_udp_$ip.txt --open --system-dns > /dev/null
         echo "$ip" >> $UDP_PATH/hosts_complete_udp.txt
+        echo "UDP Scan Complete for Host $ip"
     done 
-    echo "UDP Scan Finished"
 }
 
 nmap_full_scan()
@@ -125,7 +125,7 @@ nmap_full_scan()
 	do
 		tcp_nmap_scan $num &
 		udp_nmap_scan $num &
-	done;
+	done
 
 	wait
 
@@ -135,12 +135,20 @@ nmap_full_scan()
 main()
 {
 	init_vars
-	ping_scan
+
+	start=`date +%s`
+	echo "Start Date: $(date '+%X %x')" > $DIRECTORY/time
+
+	ping_scan	
 	nmap_full_scan
+
+	end=`date +%s`	
+	echo "Finished Date: $(date '+%X %x')" >> $DIRECTORY/time
+	echo "AVG Total Time: $((end-start)) seconds" >> $DIRECTORY/time
+	echo "AVG Total Time: $((end-start)) seconds"
 
 	echo "Ty for use yozgarcia's script!"
 	rm -rf $DIRECTORY/tmp > /dev/null
 }
 
 main
-
