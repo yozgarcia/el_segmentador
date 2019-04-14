@@ -4,14 +4,14 @@ Tool to automate corporate networks segmentation test
 
 ![](https://img.shields.io/github/license/yozgarcia/el_segmentador.svg?style=plastic) ![](https://img.shields.io/github/last-commit/yozgarcia/el_segmentador.svg) ![](https://img.shields.io/badge/nmap-%3E%3D%207.0-green.svg)
 
-##Features
+## Features
 - Create a file structure to store the results in an orderly manner
 - Scans and analyzes live machines in different network segments, using four different Ping Scan Methods
 - Performs a deeper scan in live machines, looking for enumerate the versions of the services and possible vulnerabilities, both for TCP and UDP ports
 - Record the total usage time of the script
 - Compatible with all nmap versions above the 7.0
 
-##Issues
+## Issues
 - Some people may need to run with sudo permissions for the full nmap operation
 
 ### Installation
