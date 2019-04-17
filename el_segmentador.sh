@@ -95,11 +95,33 @@ ping_scan()
 {
 	echo "Executing MultiPingScan"
 
-	nmap -T3 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan.txt --open -system-dns -sn > /dev/null & 
-	nmap -T3 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_u.txt --open --system-dns -sn -PU > /dev/null & 
-	nmap -T3 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_s.txt --open --system-dns -sn -PS > /dev/null &
-	nmap -T3 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_a.txt --open --system-dns -sn -PA > /dev/null &
+	echo "Ping Scan" > $TMP_PATH/atual_ping_scan.txt
+	echo "Ping Scan SYN" > $TMP_PATH/atual_ping_scan_s.txt
+	echo "Ping Scan ACK" > $TMP_PATH/atual_ping_scan_a.txt
+	echo "Ping Scan UDP" > $TMP_PATH/atual_ping_scan_u.txt
+	echo "Ping Scan SCTP INIT" > $TMP_PATH/atual_ping_scan_y.txt
+	echo "Ping Scan ICMP" > $TMP_PATH/atual_ping_scan_e.txt
+	echo "Ping Scan IP" > $TMP_PATH/atual_ping_scan_o.txt
+	echo "Ping Scan ARP" > $TMP_PATH/atual_ping_scan_r.txt
+
+	nmap -T2 -v -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan.txt --open -system-dns -sn >> $TMP_PATH/atual_ping_scan.txt &
+	nmap -T2 -v -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_s.txt --open --system-dns -sn -PS >> $TMP_PATH/atual_ping_scan_s.txt &
+	nmap -T2 -v -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_a.txt --open --system-dns -sn -PA >> $TMP_PATH/atual_ping_scan_a.txt &
+	nmap -T2 -v -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_u.txt --open --system-dns -sn -PU >> $TMP_PATH/atual_ping_scan_u.txt &
+	nmap -T2 -v -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_y.txt --open --system-dns -sn -PY >> $TMP_PATH/atual_ping_scan_y.txt &
+	nmap -T2 -v -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_e.txt --open --system-dns -sn -PE >> $TMP_PATH/atual_ping_scan_e.txt &
+	nmap -T2 -v -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_o.txt --open --system-dns -sn -PO >> $TMP_PATH/atual_ping_scan_o.txt &
+	nmap -T2 -v -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_r.txt --open --system-dns -sn -PR >> $TMP_PATH/atual_ping_scan_r.txt &
 	wait
+
+	rm -rf $TMP_PATH/atual_ping_scan.txt
+	rm -rf $TMP_PATH/atual_ping_scan_s.txt
+	rm -rf $TMP_PATH/atual_ping_scan_a.txt
+	rm -rf $TMP_PATH/atual_ping_scan_u.txt
+	rm -rf $TMP_PATH/atual_ping_scan_y.txt
+	rm -rf $TMP_PATH/atual_ping_scan_e.txt
+	rm -rf $TMP_PATH/atual_ping_scan_o.txt
+	rm -rf $TMP_PATH/atual_ping_scan_r.txt
 
 	merge_ping_scan
 
@@ -110,21 +132,25 @@ tcp_nmap_scan()
 {
     for ip in $(cat $TMP_PATH/list0$1)
     do
-        nmap -p- -Pn -sV -A --script "discovery and version" -T3 -e $ETH $ip -oN $TCP_PATH/discovery_version_scan_tcp_$ip.txt --open --system-dns > /dev/null
-        nmap -p- -Pn -sV -A --script "default and vuln" -T3 -e $ETH $ip -oN $TCP_PATH/default_vuln_scan_tcp_$ip.txt --open --system-dns > /dev/null
+    	echo "TCP Scan $ip" > $TCP_PATH/atual_tcp_scan_$ip.txt
+        nmap -p- -Pn -sV -A --script "discovery and version" -T4 -v -e $ETH $ip -oN $TCP_PATH/discovery_version_scan_tcp_$ip.txt --open --system-dns >> $TCP_PATH/atual_tcp_scan_$ip.txt
+        nmap -p- -Pn -sV -A --script "default and vuln" -T4 -v -e $ETH $ip -oN $TCP_PATH/default_vuln_scan_tcp_$ip.txt --open --system-dns >> $TCP_PATH/atual_tcp_scan_$ip.txt
         echo "$ip" >> $TCP_PATH/hosts_complete_tcp.txt
         echo "TCP Scan Complete for Host $ip"
+        rm -rf $TCP_PATH/atual_tcp_scan_$ip.txt
     done
 }
 
 udp_nmap_scan()
 {
     for ip in $(cat $TMP_PATH/list0$1)
-    do		
-        nmap -p- -Pn -sV -A -sU --script "discovery and version" -T3 -e $ETH $ip -oN $UDP_PATH/discovery_version_scan_udp_$ip.txt --open --system-dns > /dev/null
-        nmap -p- -Pn -sV -A -sU --script "default and vuln" -T3 -e $ETH $ip -oN $UDP_PATH/default_vuln_scan_udp_$ip.txt --open --system-dns > /dev/null
+    do
+    	echo "TCP Scan $ip" > $UDP_PATH/atual_tcp_scan_$ip.txt
+        nmap -p- -Pn -sV -A -sU --script "discovery and version" -T4 -e $ETH $ip -oN $UDP_PATH/discovery_version_scan_udp_$ip.txt --open --system-dns >> $UDP_PATH/atual_udp_scan_$ip.txt
+        nmap -p- -Pn -sV -A -sU --script "default and vuln" -T4 -e $ETH $ip -oN $UDP_PATH/default_vuln_scan_udp_$ip.txt --open --system-dns >> $UDP_PATH/atual_udp_scan_$ip.txt
         echo "$ip" >> $UDP_PATH/hosts_complete_udp.txt
         echo "UDP Scan Complete for Host $ip"
+        rm -rf $UDP_PATH/atual_udp_scan_$ip.txt
     done 
 }
 
