@@ -95,10 +95,13 @@ ping_scan()
 {
 	echo "Executing Ping Sweep!"
 
-	nmap -T3 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan.txt --open -system-dns -sn > /dev/null &
-	nmap -T3 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_u.txt --open --system-dns -sn -PU > /dev/null &
-	nmap -T3 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_s.txt --open --system-dns -sn -PS > /dev/null &
-	nmap -T3 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_a.txt --open --system-dns -sn -PA > /dev/null &
+	nmap -T3 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan.txt -sn -n > /dev/null &
+	nmap -T3 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_u.txt -sn -n -PU > /dev/null &
+	nmap -T3 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_s.txt -sn -n -PS > /dev/null &
+	nmap -T3 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_a.txt -sn -n -PA > /dev/null &
+	nmap -T3 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_y.txt -sn -n -PY > /dev/null &
+	nmap -T3 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_p.txt -sn -n -PP > /dev/null &
+	nmap -T3 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_e.txt -sn -n -PE > /dev/null &
 	wait
 
 	merge_ping_scan
