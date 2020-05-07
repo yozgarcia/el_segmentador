@@ -113,8 +113,7 @@ tcp_nmap_scan()
 {
     for ip in $(cat $TMP_PATH/list0$1)
     do
-        nmap -p- -Pn -sV -A --script "discovery and version" -T3 -e $ETH $ip -oN $TCP_PATH/discovery_version_scan_tcp_$ip.txt --open --system-dns > /dev/null
-        nmap -p- -Pn -sV -A --script "default and vuln" -T3 -e $ETH $ip -oN $TCP_PATH/default_vuln_scan_tcp_$ip.txt --open --system-dns > /dev/null
+	nmap --top-ports=100 -Pn -n -sSV -A -T3 -e $ETH $ip -oA $TCP_PATH/tcp_scan_$ip > /dev/null
         echo "$ip" >> $TCP_PATH/hosts_complete_tcp.txt
         echo "TCP Scan Complete for Host $ip"
     done
@@ -124,8 +123,7 @@ udp_nmap_scan()
 {
     for ip in $(cat $TMP_PATH/list0$1)
     do
-        nmap -p- -Pn -sV -A -sU --script "discovery and version" -T3 -e $ETH $ip -oN $UDP_PATH/discovery_version_scan_udp_$ip.txt --open --system-dns > /dev/null
-        nmap -p- -Pn -sV -A -sU --script "default and vuln" -T3 -e $ETH $ip -oN $UDP_PATH/default_vuln_scan_udp_$ip.txt --open --system-dns > /dev/null
+	nmap --top-ports=10 -Pn -n -sUV -T3 -e $ETH $ip -oA $UDP_PATH/udp_scan_$ip > /dev/null
         echo "$ip" >> $UDP_PATH/hosts_complete_udp.txt
         echo "UDP Scan Complete for Host $ip"
     done
