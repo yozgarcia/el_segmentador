@@ -34,14 +34,14 @@ init_directories()
 check_interface()
 {
 	echo -en "Report the Network Interface: "
-	read ETH	
+	read ETH
 
 	ifconfig | grep : | cut -d: -f1 | grep -v ' ' > $TMP_PATH/eths
 	isInFile=$(cat $TMP_PATH/eths | grep -Fxc "$ETH")
 
 	while [ "$isInFile" -eq 0 ]
 	do
-		echo "WARMING!! Network Interface invalid!"
+		echo "WARNING!! Network Interface invalid!"
 		echo -en "Report the Network Interface: "
 		read ETH
 		isInFile=$(cat $TMP_PATH/eths | grep -Fxc "$ETH")
@@ -54,7 +54,7 @@ check_scope()
 	read SCOPE
 	while [ ! -e $SCOPE ]
 	do
-		echo "WARMING!! Scope invalid!"
+		echo "WARNING!! Scope invalid!"
 		echo -en "Report the network scope: "
 		read SCOPE
 	done
@@ -68,8 +68,8 @@ init_vars()
 
 	rm -rf $TCP_PATH/hosts_complete_tcp.txt
 	rm -rf $UDP_PATH/hosts_complete_udp.txt
-	echo "TCP Hosts Complete Scan" > $TCP_PATH/hosts_complete_tcp.txt
-	echo "UDP Hosts Complete Scan" > $UDP_PATH/hosts_complete_udp.txt
+	echo "TCP Hosts Scan Complete" > $TCP_PATH/hosts_complete_tcp.txt
+	echo "UDP Hosts Scan Complete" > $UDP_PATH/hosts_complete_udp.txt
 }
 
 split_machines()
@@ -93,17 +93,17 @@ merge_ping_scan()
 
 ping_scan()
 {
-	echo "Executing MultiPingScan"
+	echo "Executing Ping Sweep!"
 
-	nmap -T3 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan.txt --open -system-dns -sn > /dev/null & 
-	nmap -T3 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_u.txt --open --system-dns -sn -PU > /dev/null & 
+	nmap -T3 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan.txt --open -system-dns -sn > /dev/null &
+	nmap -T3 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_u.txt --open --system-dns -sn -PU > /dev/null &
 	nmap -T3 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_s.txt --open --system-dns -sn -PS > /dev/null &
 	nmap -T3 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_scan_a.txt --open --system-dns -sn -PA > /dev/null &
 	wait
 
 	merge_ping_scan
 
-	echo "MultiPingScan Finished"
+	echo "Finished Ping Sweep"
 }
 
 tcp_nmap_scan()
@@ -120,17 +120,17 @@ tcp_nmap_scan()
 udp_nmap_scan()
 {
     for ip in $(cat $TMP_PATH/list0$1)
-    do		
+    do
         nmap -p- -Pn -sV -A -sU --script "discovery and version" -T3 -e $ETH $ip -oN $UDP_PATH/discovery_version_scan_udp_$ip.txt --open --system-dns > /dev/null
         nmap -p- -Pn -sV -A -sU --script "default and vuln" -T3 -e $ETH $ip -oN $UDP_PATH/default_vuln_scan_udp_$ip.txt --open --system-dns > /dev/null
         echo "$ip" >> $UDP_PATH/hosts_complete_udp.txt
         echo "UDP Scan Complete for Host $ip"
-    done 
+    done
 }
 
 nmap_full_scan()
 {
-	echo "Executing TCP and UDP MultiScan"
+	echo "Executing TCP and UDP Port Scan"
 
 	for num in `seq 0 $(($num_lists - 1))`
 	do
@@ -140,7 +140,7 @@ nmap_full_scan()
 
 	wait
 
-	echo "TCP and UDP MultiScan Finished"
+	echo "Finished TCP and UDP Port Scan"
 }
 
 main()
@@ -150,10 +150,10 @@ main()
 	start=`date +%s`
 	echo "Start Date: $(date '+%X %x')" > $DIRECTORY/time
 
-	ping_scan	
+	ping_scan
 	nmap_full_scan
 
-	end=`date +%s`	
+	end=`date +%s`
 	echo "Finished Date: $(date '+%X %x')" >> $DIRECTORY/time
 	echo "AVG Total Time: $((end-start)) seconds" >> $DIRECTORY/time
 	echo "AVG Total Time: $((end-start)) seconds"
