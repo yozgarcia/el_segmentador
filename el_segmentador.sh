@@ -164,8 +164,9 @@ main()
 	rm -rf $DIRECTORY/tmp > /dev/null
 }
 
-[[ $UID -eq 0 ]] && main || echo "WARNING! Need to call this script as root!" && exit 1
+[[ $UID -ne 0 ]] && echo "WARNING! Need to call this script as root!" && exit 1
 
+main
 
 printf "
                         ░█▀▀░▀█▀░█▀█░▀█▀░█▀▀░█░█░█▀▀░█▀▄
