@@ -1,2 +1,0 @@
-# Nmap 7.80 scan initiated Wed May 13 21:32:48 2020 as: nmap -T3 -e eth0 -iL escopo -oN teste/ping_scan/ping_scan_m.txt -sn -n -PM --disable-arp-ping
-# Nmap done at Wed May 13 21:33:41 2020 -- 256 IP addresses (0 hosts up) scanned in 52.38 seconds

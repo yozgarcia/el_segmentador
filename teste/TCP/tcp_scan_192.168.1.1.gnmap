@@ -1,4 +1,0 @@
-# Nmap 7.80 scan initiated Wed May 13 21:33:43 2020 as: nmap --top-ports=100 -Pn -n -sSV -A -T3 -e eth0 -oA teste/TCP/tcp_scan_192.168.1.1 192.168.1.1
-Host: 192.168.1.1 ()	Status: Up
-Host: 192.168.1.1 ()	Ports: 22/open/tcp//ssh//Dropbear sshd 2012.55 (protocol 2.0)/, 80/open/tcp//http//TP-LINK WR740N|WR741ND WAP http config/	Ignored State: closed (98)	OS: Linux 2.6.23 - 2.6.38	Seq Index: 201	IP ID Seq: All zeros
-# Nmap done at Wed May 13 21:33:55 2020 -- 1 IP address (1 host up) scanned in 13.69 seconds
