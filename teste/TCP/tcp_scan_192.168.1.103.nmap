@@ -1,0 +1,31 @@
+# Nmap 7.80 scan initiated Wed May 13 21:33:43 2020 as: nmap --top-ports=100 -Pn -n -sSV -A -T3 -e eth0 -oA teste/TCP/tcp_scan_192.168.1.103 192.168.1.103
+Nmap scan report for 192.168.1.103
+Host is up (0.013s latency).
+Not shown: 97 closed ports
+PORT     STATE SERVICE        VERSION
+8008/tcp open  http?
+|_http-title: Site doesn't have a title (text/html).
+8009/tcp open  ssl/ajp13?
+|_ajp-methods: Failed to get a valid response for the OPTION request
+| ssl-cert: Subject: commonName=f7b3bbec-08ad-709c-f093-6172b45500bc
+| Not valid before: 2020-05-13T10:33:30
+|_Not valid after:  2020-05-15T10:33:30
+|_ssl-date: 2020-05-14T00:35:22+00:00; 0s from scanner time.
+8443/tcp open  ssl/https-alt?
+|_http-title: Site doesn't have a title (text/html).
+| ssl-cert: Subject: commonName=AD9IUV8 FA8FCA684348/organizationName=Google Inc/stateOrProvinceName=California/countryName=US
+| Not valid before: 2018-06-16T01:18:11
+|_Not valid after:  2038-06-11T01:18:11
+MAC Address: 7C:2E:BD:18:77:2A (Google)
+Device type: general purpose
+Running: Linux 2.6.X|3.X
+OS CPE: cpe:/o:linux:linux_kernel:2.6 cpe:/o:linux:linux_kernel:3
+OS details: Linux 2.6.32 - 3.10
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT      ADDRESS
+1   12.52 ms 192.168.1.103
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed May 13 21:35:23 2020 -- 1 IP address (1 host up) scanned in 101.89 seconds

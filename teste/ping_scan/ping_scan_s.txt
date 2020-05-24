@@ -1,0 +1,17 @@
+# Nmap 7.80 scan initiated Wed May 13 21:32:48 2020 as: nmap -T3 -e eth0 -iL escopo -oN teste/ping_scan/ping_scan_s.txt -sn -n -PS --disable-arp-ping
+Nmap scan report for 192.168.1.1
+Host is up (0.00092s latency).
+MAC Address: C4:E9:84:CB:27:F8 (Tp-link Technologies)
+Nmap scan report for 192.168.1.101
+Host is up (0.19s latency).
+MAC Address: 90:78:B2:43:BB:92 (Xiaomi Communications)
+Nmap scan report for 192.168.1.103
+Host is up (0.020s latency).
+MAC Address: 7C:2E:BD:18:77:2A (Google)
+Nmap scan report for 192.168.1.104
+Host is up (0.021s latency).
+MAC Address: 2C:FD:A1:65:EF:4D (Asustek Computer)
+Nmap scan report for 192.168.1.220
+Host is up (0.23s latency).
+MAC Address: A8:5E:45:8C:03:AF (Unknown)
+# Nmap done at Wed May 13 21:32:54 2020 -- 256 IP addresses (5 hosts up) scanned in 5.84 seconds

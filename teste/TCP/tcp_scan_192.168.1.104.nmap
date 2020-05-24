@@ -1,0 +1,14 @@
+# Nmap 7.80 scan initiated Wed May 13 21:33:43 2020 as: nmap --top-ports=100 -Pn -n -sSV -A -T3 -e eth0 -oA teste/TCP/tcp_scan_192.168.1.104 192.168.1.104
+Nmap scan report for 192.168.1.104
+Host is up (0.017s latency).
+All 100 scanned ports on 192.168.1.104 are closed
+MAC Address: 2C:FD:A1:65:EF:4D (Asustek Computer)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT      ADDRESS
+1   16.54 ms 192.168.1.104
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed May 13 21:33:47 2020 -- 1 IP address (1 host up) scanned in 5.95 seconds

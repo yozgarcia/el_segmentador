@@ -1,0 +1,19 @@
+# Nmap 7.80 scan initiated Wed May 13 21:33:41 2020 as: nmap --top-ports=10 -Pn -n -sUV -T3 -e eth0 -oA teste/UDP/udp_scan_192.168.1.104 192.168.1.104
+Nmap scan report for 192.168.1.104
+Host is up (0.053s latency).
+
+PORT     STATE         SERVICE      VERSION
+53/udp   closed        domain
+67/udp   closed        dhcps
+123/udp  closed        ntp
+135/udp  open|filtered msrpc
+137/udp  closed        netbios-ns
+138/udp  open|filtered netbios-dgm
+161/udp  closed        snmp
+445/udp  closed        microsoft-ds
+631/udp  closed        ipp
+1434/udp open|filtered ms-sql-m
+MAC Address: 2C:FD:A1:65:EF:4D (Asustek Computer)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed May 13 21:34:28 2020 -- 1 IP address (1 host up) scanned in 47.04 seconds

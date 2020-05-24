@@ -1,0 +1,25 @@
+# Nmap 7.80 scan initiated Wed May 13 21:33:43 2020 as: nmap --top-ports=100 -Pn -n -sSV -A -T3 -e eth0 -oA teste/TCP/tcp_scan_192.168.1.1 192.168.1.1
+Nmap scan report for 192.168.1.1
+Host is up (0.0015s latency).
+Not shown: 98 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     Dropbear sshd 2012.55 (protocol 2.0)
+| ssh-hostkey: 
+|   1024 1f:27:2e:64:aa:52:f1:69:c0:a1:44:e5:01:9f:a7:26 (DSA)
+|_  1040 9d:b6:c3:96:a1:b6:77:4c:ea:e6:40:45:9c:f9:b6:65 (RSA)
+80/tcp open  http    TP-LINK WR740N/WR741ND WAP http config
+|_http-title: TL-WR740N/TL-WR741ND
+MAC Address: C4:E9:84:CB:27:F8 (Tp-link Technologies)
+Device type: general purpose
+Running: Linux 2.6.X
+OS CPE: cpe:/o:linux:linux_kernel:2.6
+OS details: Linux 2.6.23 - 2.6.38
+Network Distance: 1 hop
+Service Info: OS: Linux; Device: WAP; CPE: cpe:/o:linux:linux_kernel, cpe:/h:tp-link:wr740n%2Fwr741nd
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   1.46 ms 192.168.1.1
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed May 13 21:33:55 2020 -- 1 IP address (1 host up) scanned in 13.69 seconds

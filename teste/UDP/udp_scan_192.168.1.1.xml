@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.80 scan initiated Wed May 13 21:33:41 2020 as: nmap -&#45;top-ports=10 -Pn -n -sUV -T3 -e eth0 -oA teste/UDP/udp_scan_192.168.1.1 192.168.1.1 -->
+<nmaprun scanner="nmap" args="nmap -&#45;top-ports=10 -Pn -n -sUV -T3 -e eth0 -oA teste/UDP/udp_scan_192.168.1.1 192.168.1.1" start="1589416421" startstr="Wed May 13 21:33:41 2020" version="7.80" xmloutputversion="1.04">
+<scaninfo type="udp" protocol="udp" numservices="10" services="53,67,123,135,137-138,161,445,631,1434"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<host starttime="1589416423" endtime="1589416525"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.1" addrtype="ipv4"/>
+<address addr="C4:E9:84:CB:27:F8" addrtype="mac" vendor="Tp-link Technologies"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="53"><state state="open" reason="udp-response" reason_ttl="119"/><service name="domain" extrainfo="generic dns response: NOTIMP" servicefp="SF-Port53-UDP:V=7.80%I=7%D=5/13%Time=5EBC91EF%P=x86_64-pc-linux-gnu%r(DNSVersionBindReq,1E,&quot;\0\x06\x81\x82\0\x01\0\0\0\0\0\0\x07version\x04bind\0\0\x10\0\x03&quot;)%r(DNSStatusRequest,C,&quot;\0\0\x90\x04\0\0\0\0\0\0\0\0&quot;)%r(NBTStat,32,&quot;\x80\xf0\x80\x92\0\x01\0\0\0\0\0\0\x20CKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\0\0!\0\x01&quot;);" method="probed" conf="10"/></port>
+<port protocol="udp" portid="67"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="dhcps" method="table" conf="3"/></port>
+<port protocol="udp" portid="123"><state state="closed" reason="port-unreach" reason_ttl="64"/><service name="ntp" method="table" conf="3"/></port>
+<port protocol="udp" portid="135"><state state="closed" reason="port-unreach" reason_ttl="64"/><service name="msrpc" method="table" conf="3"/></port>
+<port protocol="udp" portid="137"><state state="closed" reason="port-unreach" reason_ttl="64"/><service name="netbios-ns" method="table" conf="3"/></port>
+<port protocol="udp" portid="138"><state state="closed" reason="port-unreach" reason_ttl="64"/><service name="netbios-dgm" method="table" conf="3"/></port>
+<port protocol="udp" portid="161"><state state="closed" reason="port-unreach" reason_ttl="64"/><service name="snmp" method="table" conf="3"/></port>
+<port protocol="udp" portid="445"><state state="closed" reason="port-unreach" reason_ttl="64"/><service name="microsoft-ds" method="table" conf="3"/></port>
+<port protocol="udp" portid="631"><state state="closed" reason="port-unreach" reason_ttl="64"/><service name="ipp" method="table" conf="3"/></port>
+<port protocol="udp" portid="1434"><state state="closed" reason="port-unreach" reason_ttl="64"/><service name="ms-sql-m" method="table" conf="3"/></port>
+</ports>
+<times srtt="2898" rttvar="3466" to="100000"/>
+</host>
+<runstats><finished time="1589416525" timestr="Wed May 13 21:35:25 2020" elapsed="104.31" summary="Nmap done at Wed May 13 21:35:25 2020; 1 IP address (1 host up) scanned in 104.31 seconds" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

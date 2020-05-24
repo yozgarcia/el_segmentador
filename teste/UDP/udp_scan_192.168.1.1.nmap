@@ -1,0 +1,25 @@
+# Nmap 7.80 scan initiated Wed May 13 21:33:41 2020 as: nmap --top-ports=10 -Pn -n -sUV -T3 -e eth0 -oA teste/UDP/udp_scan_192.168.1.1 192.168.1.1
+Nmap scan report for 192.168.1.1
+Host is up (0.0029s latency).
+
+PORT     STATE         SERVICE      VERSION
+53/udp   open          domain       (generic dns response: NOTIMP)
+67/udp   open|filtered dhcps
+123/udp  closed        ntp
+135/udp  closed        msrpc
+137/udp  closed        netbios-ns
+138/udp  closed        netbios-dgm
+161/udp  closed        snmp
+445/udp  closed        microsoft-ds
+631/udp  closed        ipp
+1434/udp closed        ms-sql-m
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port53-UDP:V=7.80%I=7%D=5/13%Time=5EBC91EF%P=x86_64-pc-linux-gnu%r(DNSV
+SF:ersionBindReq,1E,"\0\x06\x81\x82\0\x01\0\0\0\0\0\0\x07version\x04bind\0
+SF:\0\x10\0\x03")%r(DNSStatusRequest,C,"\0\0\x90\x04\0\0\0\0\0\0\0\0")%r(N
+SF:BTStat,32,"\x80\xf0\x80\x92\0\x01\0\0\0\0\0\0\x20CKAAAAAAAAAAAAAAAAAAAA
+SF:AAAAAAAAAA\0\0!\0\x01");
+MAC Address: C4:E9:84:CB:27:F8 (Tp-link Technologies)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed May 13 21:35:25 2020 -- 1 IP address (1 host up) scanned in 104.31 seconds

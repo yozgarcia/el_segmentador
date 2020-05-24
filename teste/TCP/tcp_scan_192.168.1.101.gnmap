@@ -1,0 +1,4 @@
+# Nmap 7.80 scan initiated Wed May 13 21:33:43 2020 as: nmap --top-ports=100 -Pn -n -sSV -A -T3 -e eth0 -oA teste/TCP/tcp_scan_192.168.1.101 192.168.1.101
+Host: 192.168.1.101 ()	Status: Up
+Host: 192.168.1.101 ()	Ports: 5060/filtered/tcp//sip///	Ignored State: closed (99)
+# Nmap done at Wed May 13 21:33:49 2020 -- 1 IP address (1 host up) scanned in 7.93 seconds

@@ -1,0 +1,4 @@
+# Nmap 7.80 scan initiated Wed May 13 21:33:43 2020 as: nmap --top-ports=100 -Pn -n -sSV -A -T3 -e eth0 -oA teste/TCP/tcp_scan_192.168.1.103 192.168.1.103
+Host: 192.168.1.103 ()	Status: Up
+Host: 192.168.1.103 ()	Ports: 8008/open/tcp//http?///, 8009/open/tcp//ssl|ajp13?///, 8443/open/tcp//ssl|https-alt?///	Ignored State: closed (97)	OS: Linux 2.6.32 - 3.10	Seq Index: 259	IP ID Seq: All zeros
+# Nmap done at Wed May 13 21:35:23 2020 -- 1 IP address (1 host up) scanned in 101.89 seconds

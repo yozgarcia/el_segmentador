@@ -1,0 +1,4 @@
+# Nmap 7.80 scan initiated Wed May 13 21:33:41 2020 as: nmap --top-ports=10 -Pn -n -sUV -T3 -e eth0 -oA teste/UDP/udp_scan_192.168.1.210 192.168.1.210
+Host: 192.168.1.210 ()	Status: Up
+Host: 192.168.1.210 ()	Ports: 53/open|filtered/udp//domain///, 67/open|filtered/udp//dhcps///, 123/open|filtered/udp//ntp///, 135/open|filtered/udp//msrpc///, 137/open/udp//netbios-ns?///, 138/open|filtered/udp//netbios-dgm///, 161/open|filtered/udp//snmp///, 445/open|filtered/udp//microsoft-ds///, 631/open|filtered/udp//ipp///, 1434/open|filtered/udp//ms-sql-m///
+# Nmap done at Wed May 13 21:35:30 2020 -- 1 IP address (1 host up) scanned in 109.37 seconds

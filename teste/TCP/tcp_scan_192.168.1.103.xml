@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.80 scan initiated Wed May 13 21:33:43 2020 as: nmap -&#45;top-ports=100 -Pn -n -sSV -A -T3 -e eth0 -oA teste/TCP/tcp_scan_192.168.1.103 192.168.1.103 -->
+<nmaprun scanner="nmap" args="nmap -&#45;top-ports=100 -Pn -n -sSV -A -T3 -e eth0 -oA teste/TCP/tcp_scan_192.168.1.103 192.168.1.103" start="1589416423" startstr="Wed May 13 21:33:43 2020" version="7.80" xmloutputversion="1.04">
+<scaninfo type="syn" protocol="tcp" numservices="100" services="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<host starttime="1589416424" endtime="1589416523"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.103" addrtype="ipv4"/>
+<address addr="7C:2E:BD:18:77:2A" addrtype="mac" vendor="Google"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="97">
+<extrareasons reason="resets" count="97"/>
+</extraports>
+<port protocol="tcp" portid="8008"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" method="table" conf="3"/><script id="http-title" output="Site doesn&apos;t have a title (text/html)."></script></port>
+<port protocol="tcp" portid="8009"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ajp13" tunnel="ssl" method="table" conf="3"/><script id="ajp-methods" output="Failed to get a valid response for the OPTION request"/><script id="ssl-cert" output="Subject: commonName=f7b3bbec-08ad-709c-f093-6172b45500bc&#xa;Not valid before: 2020-05-13T10:33:30&#xa;Not valid after:  2020-05-15T10:33:30"><table key="subject">
+<elem key="commonName">f7b3bbec-08ad-709c-f093-6172b45500bc</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">f7b3bbec-08ad-709c-f093-6172b45500bc</elem>
+</table>
+<table key="pubkey">
+<elem key="bits">2048</elem>
+<elem key="modulus">userdata: 0x557a38fae888</elem>
+<elem key="type">rsa</elem>
+<elem key="exponent">userdata: 0x557a38fae848</elem>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2020-05-13T10:33:30</elem>
+<elem key="notAfter">2020-05-15T10:33:30</elem>
+</table>
+<elem key="md5">c4d332fc5e6a66ff03be685c087394c3</elem>
+<elem key="sha1">86a360b45a9ec7f2b247b45035869a41a689bb64</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIC2jCCAcKgAwIBAgIEDCtAwjANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDDCRm&#xa;N2IzYmJlYy0wOGFkLTcwOWMtZjA5My02MTcyYjQ1NTAwYmMwHhcNMjAwNTEzMTAz&#xa;MzMwWhcNMjAwNTE1MTAzMzMwWjAvMS0wKwYDVQQDDCRmN2IzYmJlYy0wOGFkLTcw&#xa;OWMtZjA5My02MTcyYjQ1NTAwYmMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK&#xa;AoIBAQDNUB7QnX+0P3vC/8aFAQbOToPObJHlUFvvOr+CGzhZ+XECsmbQlPKWQOaR&#xa;u92k0W/wkGcPv7utAeo77X16gYnju/RWVh4WsHHomC+dyM91R4srp8IrbrrShNwY&#xa;AuuhpscMh6fr29JSryM9L8mqgsvJFzY5yC/u9pL8Wy/HiGZ8OyfFR6fv/k0mihBF&#xa;6cIfdOR465mNK3bdvYytgVfZ/2zGb1/egL6u6JBm+0EpYH0MoUPMkq1xgmEwL8y9&#xa;9Y3JZCLpvznP8OWZ3ecbCCJoH4YbywLY+tcez+p0RB2fDK0S7ZcDi2xg7ma5jYui&#xa;ITKDadnZhY6LWQOWsFhaQTQwISgLAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAAOp&#xa;sGHM8UMl+F7+PDtGR88H8X3ZtmEf5JN4CNlvL3lU/O6AwixEP1tqQHn7u/xGLHUa&#xa;MFXV1nZKlIEIdfERMvrRcxwi8ST6cPL2TbOQJOu2z51ERwy3Xwhx9p69iWucnAGq&#xa;q+Ccj5wi3rbhvHHTiDFUUdXJuZkVq0ivkuFgWpeLSpBeEKZESh693I9qRDx2omB8&#xa;uiabXTnrIv5/jCLkmf/iSV4xCa07x8zbdSlVn9r56Xgk81pVhijXN0b0kly3IGfC&#xa;mrGiTvddVXyj+Z1GewOtdSxptbf1GFAyEeBh7s28cXQJe/DUZLRHZHZRYXLnuQuQ&#xa;R35juhz9joNbBAiLbbw=&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="ssl-date" output="2020-05-14T00:35:22+00:00; 0s from scanner time."><elem key="delta">0.0</elem>
+<elem key="date">2020-05-14T00:35:22+00:00</elem>
+</script></port>
+<port protocol="tcp" portid="8443"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="https-alt" tunnel="ssl" method="table" conf="3"/><script id="http-title" output="Site doesn&apos;t have a title (text/html)."></script><script id="ssl-cert" output="Subject: commonName=AD9IUV8 FA8FCA684348/organizationName=Google Inc/stateOrProvinceName=California/countryName=US&#xa;Not valid before: 2018-06-16T01:18:11&#xa;Not valid after:  2038-06-11T01:18:11"><table key="subject">
+<elem key="countryName">US</elem>
+<elem key="stateOrProvinceName">California</elem>
+<elem key="localityName">Mountain View</elem>
+<elem key="commonName">AD9IUV8 FA8FCA684348</elem>
+<elem key="organizationalUnitName">Cast</elem>
+<elem key="organizationName">Google Inc</elem>
+</table>
+<table key="issuer">
+<elem key="countryName">US</elem>
+<elem key="stateOrProvinceName">California</elem>
+<elem key="localityName">Mountain View</elem>
+<elem key="commonName">Chromecast ICA 12</elem>
+<elem key="organizationalUnitName">Cast</elem>
+<elem key="organizationName">Google Inc</elem>
+</table>
+<table key="pubkey">
+<elem key="bits">2048</elem>
+<elem key="modulus">userdata: 0x557a39b0ff18</elem>
+<elem key="type">rsa</elem>
+<elem key="exponent">userdata: 0x557a39b0fed8</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="value">CA:FALSE</elem>
+<elem key="name">X509v3 Basic Constraints</elem>
+</table>
+<table>
+<elem key="value">Digital Signature</elem>
+<elem key="name">X509v3 Key Usage</elem>
+</table>
+<table>
+<elem key="value">TLS Web Client Authentication</elem>
+<elem key="name">X509v3 Extended Key Usage</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2018-06-16T01:18:11</elem>
+<elem key="notAfter">2038-06-11T01:18:11</elem>
+</table>
+<elem key="md5">43e95a27b98784c2fc38d32b9615d909</elem>
+<elem key="sha1">25f20d7e4c925c1a4dc7acc5c4ee486da6a386a2</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIDpzCCAo+gAwIBAgIHQUQ5SVVWODANBgkqhkiG9w0BAQsFADB6MQswCQYDVQQG&#xa;EwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNTW91bnRhaW4gVmll&#xa;dzETMBEGA1UECgwKR29vZ2xlIEluYzENMAsGA1UECwwEQ2FzdDEaMBgGA1UEAwwR&#xa;Q2hyb21lY2FzdCBJQ0EgMTIwHhcNMTgwNjE2MDExODExWhcNMzgwNjExMDExODEx&#xa;WjB9MQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwN&#xa;TW91bnRhaW4gVmlldzETMBEGA1UECgwKR29vZ2xlIEluYzENMAsGA1UECwwEQ2Fz&#xa;dDEdMBsGA1UEAwwUQUQ5SVVWOCBGQThGQ0E2ODQzNDgwggEiMA0GCSqGSIb3DQEB&#xa;AQUAA4IBDwAwggEKAoIBAQC49azNqnOYtImVxHqURVcJ49m6fRJ/ldyMoLXiXDkn&#xa;VnGkcbFK3Azdv7XHT2ecwQuJ6Nu5qx7Sgbx83Mf7TB1tvtztZW9pxHs4vfDinuRZ&#xa;Vt92RPDnc1Dh4QImf2IwfRlpZjWj7Aw4PKyhqPAmnIQ3OkVqR0ZtKdWYUAeLrpRj&#xa;DzSjOE56gK896beDKEpChwtu9HXsthCfC5ljVb5WzBclfu2juADEi3rF1TtQ/h71&#xa;iKVciGKmuZsm2DqrTG/0q4nEH1oyHegqGBfBneCSgA8h4X70Dur710LFECxszyYm&#xa;As2q7KSj17gZd0le4HvmBbM+wJBLSJ9/IgRvbKGBcTujAgMBAAGjLzAtMAkGA1Ud&#xa;EwQCMAAwCwYDVR0PBAQDAgeAMBMGA1UdJQQMMAoGCCsGAQUFBwMCMA0GCSqGSIb3&#xa;DQEBCwUAA4IBAQCBFkN1JipWFYG2xXwo5wyQBbTA+5a2xvKfROTYUATL9mmGu/2Z&#xa;OFVU68qCqhsgjSOcmpw8aNvvjxAwPppvGDwzE4NkBZVqKm94hpFdamtbQ5XDshi2&#xa;7yLwiShnO4410Nrk0n5fKZ7do2/8S7+iudPvwzTOkYSYqndJkSC+F6wNcE/DAhOj&#xa;5H7gVJEKSTi7cPDbtObesf8x2Idr1FCz5ChHfIqjbWhB2AiIJreaXc/EHxFsYKgY&#xa;EnPDHLr/qRGNDJbUlvsQzs+5OVAcsV5tCBNTiYpJJ++RYWySTEYInHgkybmckeab&#xa;tJvhTbSpFvqaZ9FQyJ6IDlDXNe+tn/ucWR3r&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="8008"/>
+<portused state="closed" proto="tcp" portid="7"/>
+<portused state="closed" proto="udp" portid="35717"/>
+<osmatch name="Linux 2.6.32 - 3.10" accuracy="100" line="56381">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="2.6.X" accuracy="100"><cpe>cpe:/o:linux:linux_kernel:2.6</cpe></osclass>
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="3.X" accuracy="100"><cpe>cpe:/o:linux:linux_kernel:3</cpe></osclass>
+</osmatch>
+</os>
+<uptime seconds="7033" lastboot="Wed May 13 19:38:10 2020"/>
+<distance value="1"/>
+<tcpsequence index="259" difficulty="Good luck!" values="57CA328E,C20A5281,9ABE3486,CDC993DA,4B77F4E0,A183B0F8"/>
+<ipidsequence class="All zeros" values="0,0,0,0,0,0"/>
+<tcptssequence class="100HZ" values="AB88D,AB898,AB8A2,AB8AC,AB8B8,AB8C1"/>
+<trace>
+<hop ttl="1" ipaddr="192.168.1.103" rtt="12.52"/>
+</trace>
+<times srtt="12524" rttvar="10118" to="100000"/>
+</host>
+<runstats><finished time="1589416523" timestr="Wed May 13 21:35:23 2020" elapsed="101.89" summary="Nmap done at Wed May 13 21:35:23 2020; 1 IP address (1 host up) scanned in 101.89 seconds" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

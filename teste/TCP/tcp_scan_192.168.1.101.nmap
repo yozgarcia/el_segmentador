@@ -1,0 +1,16 @@
+# Nmap 7.80 scan initiated Wed May 13 21:33:43 2020 as: nmap --top-ports=100 -Pn -n -sSV -A -T3 -e eth0 -oA teste/TCP/tcp_scan_192.168.1.101 192.168.1.101
+Nmap scan report for 192.168.1.101
+Host is up (0.053s latency).
+Not shown: 99 closed ports
+PORT     STATE    SERVICE VERSION
+5060/tcp filtered sip
+MAC Address: 90:78:B2:43:BB:92 (Xiaomi Communications)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT      ADDRESS
+1   52.81 ms 192.168.1.101
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed May 13 21:33:49 2020 -- 1 IP address (1 host up) scanned in 7.93 seconds
